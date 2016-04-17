@@ -1,0 +1,33 @@
+header {
+	background-color: lightblue;
+	border-bottom: 1px solid black;
+	text-align: left;
+	h2 {
+		margin-left: 20px;
+		padding-top: 15px;
+	}
+}
+section {
+	padding: 20px;
+	margin: 20px;
+}
+.clear {
+	clear: both;
+}
+.container {
+	padding: 20px;
+	background-color: #cccccc;
+	margin: 20px;
+	border: 1px solid grey;
+	display: block;
+}
+.new-item {
+
+}
+.item-quantity {
+	width: 8%;
+}
+
+button.danger {
+	background-color: red;
+}
