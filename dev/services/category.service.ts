@@ -8,16 +8,19 @@ export class CategoryService {
 	constructor() {
 		this.categories = [
 			{
+				id: '1',
 				name: 'food',
 				label: 'Food',
 				image: '../assets/images/categories/food.jpg';
 			},
 			{
+				id: '2',
 				name: 'drink',
 				label: 'Drink',
 				image: '../assets/images/categories/drinks.jpg';
 			},
 			{
+				id: '3',
 				name: 'accessories',
 				label: 'Accessories',
 				image: '../assets/images/categories/accessories.jpg';
