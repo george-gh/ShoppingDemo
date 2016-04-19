@@ -1,5 +1,5 @@
 import {Component, EventEmitter} from 'angular2/core';
-import {ListItem} from 'app/list-item';
+import {ListItem} from './list-item';
 
 @Component({
 	selector: 'my-item-edit',

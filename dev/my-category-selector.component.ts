@@ -1,16 +1,16 @@
 import {Component, OnInit} from 'angular2/core';
-import {ListItem} from 'app/list-item';
-import {CategoryItem} from 'app/category-item';
-import {CategoryService} from 'app/services/category.service';
+import {ListItem} from './list-item';
+import {CategoryItem} from './category-item';
+import {CategoryService} from './services/category.service';
 
 @Component({
 	selector: 'my-category-selector',
 	template: `
 		<div class="category-selector">
 			<h3>Select a category</h3>
-			<div ngFor="#category for categoryArray">
-				<img src="{{category.image}}" alt="{{category.name}}">
-				<span>{{category.label}}</span>
+			<div ngFor="#cat of categoryArray">
+				<img src="{{cat.image}}" alt="{{cat.name}}">
+				<span>{{cat.label}}</span>
 			</div>
 		</div>
 	`,
@@ -23,8 +23,8 @@ export class MyCategorySelectorComponent implements OnInit {
 		
 	}
 
-	ngInit():any {
-		this.categoryArray = _categoryService.getCategories();
+	ngOnInit():any {
+		this.categoryArray = this._categoryService.getCategories();
 	}
 
 }

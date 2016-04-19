@@ -1,6 +1,6 @@
 import {Component, EventEmitter} from 'angular2/core';
-import {ListItem} from 'app/list-item';
-import {MyHighlightDirective} from 'app/directives/highlight.directive';
+import {ListItem} from './list-item';
+import {MyHighlightDirective} from './directives/highlight.directive';
 
 @Component({
 	selector: 'my-item-list',
@@ -9,7 +9,8 @@ import {MyHighlightDirective} from 'app/directives/highlight.directive';
 			<h3>Item list</h3>
 			<div class="container">
 				<ul>
-					<li *ngFor='#item of listArray' 
+					<li *ngFor='#item of listArray'
+						class="list-element"
 						myHighlight 
 						(click)="editItem(item)">{{item.name}} ({{item.quantity}})</li>
 				</ul>

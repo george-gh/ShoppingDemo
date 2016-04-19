@@ -19,7 +19,10 @@ section {
 	background-color: #cccccc;
 	margin: 20px;
 	border: 1px solid grey;
-	display: block;
+	// display: inline-block;
+	ul li.list-element {
+		// display: inline-block;
+	}
 }
 .new-item {
 

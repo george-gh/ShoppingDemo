@@ -1,4 +1,4 @@
-interface ListItem {
+export interface ListItem {
 	name: string,
 	quantity: number,
 	image: string,

@@ -20,32 +20,75 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             ItemsService = (function () {
                 function ItemsService() {
-                    this.array = new Array();
-                    this.categories = new Array();
-                    this.array = [
+                    this.items = new Array();
+                    this.items = [
                         {
                             name: 'Milk',
-                            quantity: '',
-                            image: '',
-                            category: ''
+                            quantity: 0,
+                            image: '../assets/images/items/milk.jpg',
+                            category: '1'
                         },
                         {
                             name: 'Bread',
-                            quantity: '',
-                            image: '',
-                            category: ''
-                        }
-                    ];
-                    this.categories = [
+                            quantity: 0,
+                            image: '../assets/images/items/bread.jpg',
+                            category: '1'
+                        },
                         {
-                            name: '',
-                            label: '',
-                            image: ''
+                            name: 'Sugar',
+                            quantity: 0,
+                            image: '../assets/images/items/sugar.jpg',
+                            category: '1'
+                        },
+                        {
+                            name: 'Beer',
+                            quantity: 0,
+                            image: '../assets/images/items/beer.jpg',
+                            category: '2'
+                        },
+                        {
+                            name: 'Wine',
+                            quantity: 0,
+                            image: '../assets/images/items/wine.jpg',
+                            category: '2'
+                        },
+                        {
+                            name: 'Water',
+                            quantity: 0,
+                            image: '../assets/images/items/water.jpg',
+                            category: '2'
+                        },
+                        {
+                            name: 'Dishes',
+                            quantity: 0,
+                            image: '../assets/images/items/dishes.jpg',
+                            category: '3'
+                        },
+                        {
+                            name: 'Glasses',
+                            quantity: 0,
+                            image: '../assets/images/items/glasses.jpg',
+                            category: '3'
+                        },
+                        {
+                            name: 'Cutlery',
+                            quantity: 0,
+                            image: '../assets/images/items/cutlery.jpg',
+                            category: '3'
                         }
                     ];
                 }
+                ItemsService.prototype.getItemsByCategory = function (categoryId) {
+                    var elements = new Array();
+                    this.items.map(function (item) {
+                        if (item.category == categoryId) {
+                            elements.push(item);
+                        }
+                    });
+                    return elements;
+                };
                 ItemsService = __decorate([
-                    core_1.Injectable({}), 
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
                 ], ItemsService);
                 return ItemsService;
@@ -55,4 +98,4 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZpY2VzL2l0ZW1zLnNlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUFPQTtnQkFJQztvQkFIQSxVQUFLLEdBQUcsSUFBSSxLQUFLLEVBQVksQ0FBQztvQkFDOUIsZUFBVSxHQUFHLElBQUksS0FBSyxFQUFnQixDQUFDO29CQUd0QyxJQUFJLENBQUMsS0FBSyxHQUFHO3dCQUNaOzRCQUNDLElBQUksRUFBRSxNQUFNOzRCQUNaLFFBQVEsRUFBRSxFQUFFOzRCQUNaLEtBQUssRUFBRSxFQUFFOzRCQUNULFFBQVEsRUFBRSxFQUFFO3lCQUNaO3dCQUNEOzRCQUNDLElBQUksRUFBRSxPQUFPOzRCQUNiLFFBQVEsRUFBRSxFQUFFOzRCQUNaLEtBQUssRUFBRSxFQUFFOzRCQUNULFFBQVEsRUFBRSxFQUFFO3lCQUNaO3FCQUNELENBQUM7b0JBRUYsSUFBSSxDQUFDLFVBQVUsR0FBRzt3QkFDakI7NEJBQ0MsSUFBSSxFQUFFLEVBQUU7NEJBQ1IsS0FBSyxFQUFFLEVBQUU7NEJBQ1QsS0FBSyxFQUFFLEVBQUU7eUJBQ1Q7cUJBQ0QsQ0FBQTtnQkFDRixDQUFDO2dCQTlCRjtvQkFBQyxpQkFBVSxDQUFDLEVBRVgsQ0FBQzs7Z0NBQUE7Z0JBNkJGLG1CQUFDO1lBQUQsQ0E1QkEsQUE0QkMsSUFBQTtZQTVCRCx1Q0E0QkMsQ0FBQSIsImZpbGUiOiJzZXJ2aWNlcy9pdGVtcy5zZXJ2aWNlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtJbmplY3RhYmxlfSBmcm9tICdhbmd1bGFyMi9jb3JlJztcbmltcG9ydCB7TGlzdEl0ZW19IGZyb20gJ2FwcC9saXN0LWl0ZW0nO1xuaW1wb3J0IHtDYXRlZ29yeUl0ZW19IGZyb20gJ2FwcC9jYXRlZ29yeS1pdGVtJztcblxuQEluamVjdGFibGUoe1xuXG59KVxuZXhwb3J0IGNsYXNzIEl0ZW1zU2VydmljZSB7XG5cdGFycmF5ID0gbmV3IEFycmF5PExpc3RJdGVtPigpO1xuXHRjYXRlZ29yaWVzID0gbmV3IEFycmF5PENhdGVnb3J5SXRlbT4oKTtcblxuXHRjb25zdHJ1Y3RvcigpIHtcblx0XHR0aGlzLmFycmF5ID0gW1xuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnTWlsaycsIFxuXHRcdFx0XHRxdWFudGl0eTogJycsIFxuXHRcdFx0XHRpbWFnZTogJycsIFxuXHRcdFx0XHRjYXRlZ29yeTogJydcblx0XHRcdH0sXG5cdFx0XHR7XG5cdFx0XHRcdG5hbWU6ICdCcmVhZCcsXG5cdFx0XHRcdHF1YW50aXR5OiAnJyxcblx0XHRcdFx0aW1hZ2U6ICcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJydcblx0XHRcdH1cblx0XHRdO1xuXG5cdFx0dGhpcy5jYXRlZ29yaWVzID0gW1xuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnJyxcblx0XHRcdFx0bGFiZWw6ICcnLFxuXHRcdFx0XHRpbWFnZTogJydcblx0XHRcdH1cblx0XHRdXG5cdH1cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZpY2VzL2l0ZW1zLnNlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUFJQTtnQkFHQztvQkFGQSxVQUFLLEdBQUcsSUFBSSxLQUFLLEVBQVksQ0FBQztvQkFHN0IsSUFBSSxDQUFDLEtBQUssR0FBRzt3QkFDWjs0QkFDQyxJQUFJLEVBQUUsTUFBTTs0QkFDWixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsaUNBQWlDOzRCQUN4QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsT0FBTzs0QkFDYixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsa0NBQWtDOzRCQUN6QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsT0FBTzs0QkFDYixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsa0NBQWtDOzRCQUN6QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsTUFBTTs0QkFDWixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsaUNBQWlDOzRCQUN4QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsTUFBTTs0QkFDWixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsaUNBQWlDOzRCQUN4QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsT0FBTzs0QkFDYixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsa0NBQWtDOzRCQUN6QyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsUUFBUTs0QkFDZCxRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsbUNBQW1DOzRCQUMxQyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsU0FBUzs0QkFDZixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsb0NBQW9DOzRCQUMzQyxRQUFRLEVBQUUsR0FBRzt5QkFDYjt3QkFDRDs0QkFDQyxJQUFJLEVBQUUsU0FBUzs0QkFDZixRQUFRLEVBQUUsQ0FBQzs0QkFDWCxLQUFLLEVBQUUsb0NBQW9DOzRCQUMzQyxRQUFRLEVBQUUsR0FBRzt5QkFDYjtxQkFDRCxDQUFDO2dCQUNILENBQUM7Z0JBRUQseUNBQWtCLEdBQWxCLFVBQW1CLFVBQWtCO29CQUNwQyxJQUFJLFFBQVEsR0FBRyxJQUFJLEtBQUssRUFBWSxDQUFDO29CQUNyQyxJQUFJLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxVQUFTLElBQUk7d0JBQzNCLEVBQUUsQ0FBQyxDQUFDLElBQUksQ0FBQyxRQUFRLElBQUksVUFBVSxDQUFDLENBQUMsQ0FBQzs0QkFDakMsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQzt3QkFDckIsQ0FBQztvQkFDRixDQUFDLENBQUMsQ0FBQztvQkFDSCxNQUFNLENBQUMsUUFBUSxDQUFDO2dCQUNqQixDQUFDO2dCQXZFRjtvQkFBQyxpQkFBVSxFQUFFOztnQ0FBQTtnQkF3RWIsbUJBQUM7WUFBRCxDQXZFQSxBQXVFQyxJQUFBO1lBdkVELHVDQXVFQyxDQUFBIiwiZmlsZSI6InNlcnZpY2VzL2l0ZW1zLnNlcnZpY2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0luamVjdGFibGV9IGZyb20gJ2FuZ3VsYXIyL2NvcmUnO1xuaW1wb3J0IHtMaXN0SXRlbX0gZnJvbSAnLi4vbGlzdC1pdGVtJztcblxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIEl0ZW1zU2VydmljZSB7XG5cdGl0ZW1zID0gbmV3IEFycmF5PExpc3RJdGVtPigpO1xuXG5cdGNvbnN0cnVjdG9yKCkge1xuXHRcdHRoaXMuaXRlbXMgPSBbXG5cdFx0XHR7XG5cdFx0XHRcdG5hbWU6ICdNaWxrJywgXG5cdFx0XHRcdHF1YW50aXR5OiAwLCBcblx0XHRcdFx0aW1hZ2U6ICcuLi9hc3NldHMvaW1hZ2VzL2l0ZW1zL21pbGsuanBnJywgXG5cdFx0XHRcdGNhdGVnb3J5OiAnMSdcblx0XHRcdH0sXG5cdFx0XHR7XG5cdFx0XHRcdG5hbWU6ICdCcmVhZCcsXG5cdFx0XHRcdHF1YW50aXR5OiAwLFxuXHRcdFx0XHRpbWFnZTogJy4uL2Fzc2V0cy9pbWFnZXMvaXRlbXMvYnJlYWQuanBnJyxcblx0XHRcdFx0Y2F0ZWdvcnk6ICcxJ1xuXHRcdFx0fSxcblx0XHRcdHtcblx0XHRcdFx0bmFtZTogJ1N1Z2FyJyxcblx0XHRcdFx0cXVhbnRpdHk6IDAsXG5cdFx0XHRcdGltYWdlOiAnLi4vYXNzZXRzL2ltYWdlcy9pdGVtcy9zdWdhci5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzEnXG5cdFx0XHR9LFxuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnQmVlcicsXG5cdFx0XHRcdHF1YW50aXR5OiAwLFxuXHRcdFx0XHRpbWFnZTogJy4uL2Fzc2V0cy9pbWFnZXMvaXRlbXMvYmVlci5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzInXG5cdFx0XHR9LFxuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnV2luZScsXG5cdFx0XHRcdHF1YW50aXR5OiAwLFxuXHRcdFx0XHRpbWFnZTogJy4uL2Fzc2V0cy9pbWFnZXMvaXRlbXMvd2luZS5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzInXG5cdFx0XHR9LFxuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnV2F0ZXInLFxuXHRcdFx0XHRxdWFudGl0eTogMCxcblx0XHRcdFx0aW1hZ2U6ICcuLi9hc3NldHMvaW1hZ2VzL2l0ZW1zL3dhdGVyLmpwZycsXG5cdFx0XHRcdGNhdGVnb3J5OiAnMidcblx0XHRcdH0sXG5cdFx0XHR7XG5cdFx0XHRcdG5hbWU6ICdEaXNoZXMnLFxuXHRcdFx0XHRxdWFudGl0eTogMCxcblx0XHRcdFx0aW1hZ2U6ICcuLi9hc3NldHMvaW1hZ2VzL2l0ZW1zL2Rpc2hlcy5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzMnXG5cdFx0XHR9LFxuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnR2xhc3NlcycsXG5cdFx0XHRcdHF1YW50aXR5OiAwLFxuXHRcdFx0XHRpbWFnZTogJy4uL2Fzc2V0cy9pbWFnZXMvaXRlbXMvZ2xhc3Nlcy5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzMnXG5cdFx0XHR9LFxuXHRcdFx0e1xuXHRcdFx0XHRuYW1lOiAnQ3V0bGVyeScsXG5cdFx0XHRcdHF1YW50aXR5OiAwLFxuXHRcdFx0XHRpbWFnZTogJy4uL2Fzc2V0cy9pbWFnZXMvaXRlbXMvY3V0bGVyeS5qcGcnLFxuXHRcdFx0XHRjYXRlZ29yeTogJzMnXG5cdFx0XHR9XG5cdFx0XTtcdFx0XG5cdH1cblxuXHRnZXRJdGVtc0J5Q2F0ZWdvcnkoY2F0ZWdvcnlJZDogc3RyaW5nKTogQXJyYXk8TGlzdEl0ZW0+IHtcblx0XHRsZXQgZWxlbWVudHMgPSBuZXcgQXJyYXk8TGlzdEl0ZW0+KCk7XG5cdFx0dGhpcy5pdGVtcy5tYXAoZnVuY3Rpb24oaXRlbSl7XG5cdFx0XHRpZiAoaXRlbS5jYXRlZ29yeSA9PSBjYXRlZ29yeUlkKSB7XG5cdFx0XHRcdGVsZW1lbnRzLnB1c2goaXRlbSk7XG5cdFx0XHR9XG5cdFx0fSk7XG5cdFx0cmV0dXJuIGVsZW1lbnRzO1xuXHR9XG59Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

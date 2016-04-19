@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {CategoryItem} from 'app/category-item';
+import {CategoryItem} from '../category-item';
 
 @Injectable()
 export class CategoryService {
@@ -8,19 +8,19 @@ export class CategoryService {
 	constructor() {
 		this.categories = [
 			{
-				id: '1',
+				id: 1,
 				name: 'food',
 				label: 'Food',
 				image: '../assets/images/categories/food.jpg';
 			},
 			{
-				id: '2',
+				id: 2,
 				name: 'drink',
 				label: 'Drink',
 				image: '../assets/images/categories/drinks.jpg';
 			},
 			{
-				id: '3',
+				id: 3,
 				name: 'accessories',
 				label: 'Accessories',
 				image: '../assets/images/categories/accessories.jpg';

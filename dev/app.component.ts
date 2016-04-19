@@ -1,9 +1,9 @@
 import {Component, EventEmitter} from 'angular2/core';
-import {MyNewItemComponent} from 'app/my-new-item.component';
-import {MyItemListComponent} from 'app/my-item-list.component';
-import {MyItemEditComponent} from 'app/my-item-edit.component';
-import {MyCategorySelectorComponent} from 'app/my-category-selector.component'
-import {ListItem} from 'app/list-item';
+import {MyNewItemComponent} from './my-new-item.component';
+import {MyItemListComponent} from './my-item-list.component';
+import {MyItemEditComponent} from './my-item-edit.component';
+import {MyCategorySelectorComponent} from './my-category-selector.component'
+import {ListItem} from './list-item';
 // import {ItemsService} from 'app/services/items.service';
 
 @Component({
@@ -24,7 +24,7 @@ import {ListItem} from 'app/list-item';
 })
 export class AppComponent {
 	itemArray = new Array<ListItem>();
-	selectedItem = {name: '', quantity: '', image: '', category: ''};
+	selectedItem = {name: '', quantity: 0, image: '', category: ''};
 	itemList = new EventEmitter<ListItem>();
 
     onSelectItem(item: ListItem) {
@@ -32,20 +32,20 @@ export class AppComponent {
 	}
 
 	addNewItem(item: ListItem) {
-		if (item.name != '' && item.quantity != '')
+		if (item.name != '' && item.quantity != 0)
 		this.itemArray.push({name: item.name, quantity: item.quantity, image: item.image, category: item.category});
 	}
 
 	somethingSelected(item: ListItem):boolean {
-		if (item.name == '' && item.quantity == '') {
+		if (item.name == '' && item.quantity == 0) {
 			return false;
 		} else {
-			return true:
+			return true;
 		}
 	}
 
 	onRemoveItem(item: ListItem) {
 		this.itemArray.splice(this.itemArray.indexOf(item), 1);
-		this.selectedItem = {name: '', quantity: '', image: '', category: ''};
+		this.selectedItem = {name: '', quantity: 0, image: '', category: ''};
 	}
 }
