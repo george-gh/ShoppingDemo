@@ -8,9 +8,11 @@ import {CategoryService} from './services/category.service';
 	template: `
 		<div class="category-selector">
 			<h3>Select a category</h3>
-			<div ngFor="#cat of categoryArray">
-				<img src="{{cat.image}}" alt="{{cat.name}}">
-				<span>{{cat.label}}</span>
+			<div class="category-selection">
+				<div *ngFor="#cat of categoryArray" class="category">
+					<img src="{{cat.image}}" alt="{{cat.name}}" width="150" height="150">
+					<span>{{cat.label}}</span>
+				</div>
 			</div>
 		</div>
 	`,
