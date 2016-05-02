@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 import {ListItem} from './list-item';
 import {CategoryItem} from './category-item';
 import {ItemsService} from './services/items.service';
@@ -19,18 +19,12 @@ import {ItemsService} from './services/items.service';
 	inputs: ['myCategory'],
 	providers: [ItemsService]
 })
-export class MyCategoryProductsComponent implements OnInit {
+export class MyCategoryProductsComponent {
 	products: Array<ListItem> = [];
 	currentCategory: CategoryItem;
 	@Input() myCategory: CategoryItem;
 
 	constructor(private _itemService: ItemsService) {}
-
-	ngOnInit() {
-		//this.myCategory = this.currentCategory;
-		//this.setProducts(this.currentCategory.id);
-
-	}
 
 	setProducts(catId: number) {
 		this.products = this._itemService.getItemsByCategory(catId);
