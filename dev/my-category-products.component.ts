@@ -10,7 +10,7 @@ import {MyProductComponent} from './my-product.component';
 			<h2>{{myCategory.label}}</h2>
 			<ul>
 				<li *ngFor='#item of myProducts'>
-					<my-product (productElement)="item"></my-product>
+					<my-product [productElement]="item"></my-product>
 				</li>
 			</ul>
 		</div>

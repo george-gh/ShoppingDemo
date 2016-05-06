@@ -5,13 +5,13 @@ import {ListItem} from './list-item';
 	selector: 'my-product',
 	template: `
 		<div>
-			<span>{{product.name}}</span>
-			<img src="{{product.image}}" alt="{{product.name}}" width="50" height="50">
+			<span>{{productElement.name}}</span>
+			<img src="{{productElement.image}}" alt="{{productElement.name}}" width="80" height="80">
 		</div>
 	`,
-	inputs: ['productElement: product']
+	outputs: ['productElement']
 })
 export class MyProductComponent {
-	@Input() product: ListItem;
+	@Input() productElement: ListItem;
 
 }
