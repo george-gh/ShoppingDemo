@@ -6,7 +6,7 @@ import {MyCategorySelectorComponent} from './my-category-selector.component';
 import {MyCategoryProductsComponent} from './my-category-products.component';
 import {ListItem} from './list-item';
 import {CategoryItem} from './category-item';
-// import {ItemsService} from 'app/services/items.service';
+import {ItemsService} from './services/items.service';
 
 @Component({
     selector: 'my-app',
@@ -16,7 +16,7 @@ import {CategoryItem} from './category-item';
     	</header>
     	<div class="main">
     		<my-category-selector (selectedCategory)="selectCategory($event)"></my-category-selector>
-    		<my-category-products [myCategory]="currentCategory" *ngIf="currentCategory.id != null"></my-category-products>
+    		<my-category-products [myProducts]="getProducts(currentCategory)" [myCategory]="currentCategory" *ngIf="currentCategory.id != null"></my-category-products>
 	        <my-new-item (newItem)="addNewItem($event)"></my-new-item>
 	        <my-item-list *ngIf="itemArray.length > 0" [listArray]="itemArray" (chosenItem)="onSelectItem($event)"></my-item-list>
 	        <my-item-edit *ngIf="somethingSelected(selectedItem)" [managedItem]="selectedItem" (removedItem)="onRemoveItem($event)"></my-item-edit>
@@ -24,13 +24,18 @@ import {CategoryItem} from './category-item';
     `,
     directives: [MyNewItemComponent, MyItemListComponent, MyItemEditComponent, MyCategorySelectorComponent, MyCategoryProductsComponent],
     inputs: ['newItem', 'chosenItem', 'selectedCategory'],
-    outputs: ['categoryEmitter']
+    providers: [ItemsService],
+    outputs: ['myProducts', 'myCategory']
 })
 export class AppComponent {
 	itemArray = new Array<ListItem>();
 	selectedItem = {name: '', quantity: 0, image: '', category: null};
 	currentCategory: CategoryItem = {id: null, name: '', label: '', image: ''};
-	itemList = new EventEmitter<ListItem>();
+	currentProducts: ListItem[] = [];
+
+	constructor(private _itemService: ItemsService) {
+
+	}
 
     onSelectItem(item: ListItem) {
 		this.selectedItem = item;
@@ -56,6 +61,11 @@ export class AppComponent {
 
 	selectCategory(category: CategoryItem) {
 		this.currentCategory = category;
+	}
+
+	getProducts(currentCategory: CategoryItem) {
+		this.currentProducts = this._itemService.getItemsByCategory(currentCategory.id);
+		return this.currentProducts;
 	}
 
 }

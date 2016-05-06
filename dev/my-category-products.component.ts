@@ -1,32 +1,28 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output} from 'angular2/core';
 import {ListItem} from './list-item';
 import {CategoryItem} from './category-item';
-import {ItemsService} from './services/items.service';
+import {MyProductComponent} from './my-product.component';
 
 @Component({
 	selector: 'my-category-products',
 	template: `
 		<div>
-			<h2>Products list</h2>
-			<p>Category = {{myCategory.label}} | Array size = {{products.length}}</p>
+			<h2>{{myCategory.label}}</h2>
 			<ul>
-				<li *ngFor='#item of products'>
-					{{item.name}}
+				<li *ngFor='#item of myProducts'>
+					<my-product (productElement)="item"></my-product>
 				</li>
 			</ul>
 		</div>
 	`,
-	inputs: ['myCategory'],
-	providers: [ItemsService]
+	inputs: ['myCategory', 'myProducts'],
+	outputs: ['productElement'],
+	directives: [MyProductComponent]
 })
 export class MyCategoryProductsComponent {
 	products: Array<ListItem> = [];
 	currentCategory: CategoryItem;
 	@Input() myCategory: CategoryItem;
+	@Input() myProducts: ListItem[];
 
-	constructor(private _itemService: ItemsService) {}
-
-	setProducts(catId: number) {
-		this.products = this._itemService.getItemsByCategory(catId);
-	}
 }
