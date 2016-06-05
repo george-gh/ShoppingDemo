@@ -73,4 +73,8 @@ export class ItemsService {
 		});
 		return elements;
 	}
+
+	addItem(item: ListItem) {
+		this.items.push(item);
+	}
 }

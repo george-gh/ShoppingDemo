@@ -6,12 +6,16 @@ import {ListItem} from './list-item';
 	template: `
 		<div>
 			<span>{{productElement.name}}</span>
-			<img src="{{productElement.image}}" alt="{{productElement.name}}" width="80" height="80">
+			<img src="{{productElement.image}}" alt="{{productElement.name}}" class="clickable-img" width="80" height="80" (click)="onSelectItem(productElement)">
 		</div>
 	`,
 	outputs: ['productElement']
 })
 export class MyProductComponent {
 	@Input() productElement: ListItem;
+	selectedProduct: ListItem;
 
+	onSelectItem(item: ListItem) {
+		this.selectedProduct = {name: item.name, quantity: item.quantity, image: item.image, category: item.category};
+	}
 }

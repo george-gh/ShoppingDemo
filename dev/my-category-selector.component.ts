@@ -10,7 +10,7 @@ import {CategoryService} from './services/category.service';
 			<h3>Select a category</h3>
 			<div class="category-selection">
 				<div *ngFor="#cat of categoryArray" class="category">
-					<img src="{{cat.image}}" alt="{{cat.name}}" width="150" height="150" (click)="setCurrentCategory(cat)">
+					<img src="{{cat.image}}" alt="{{cat.name}}" class="clickable-img" width="150" height="150" (click)="setCurrentCategory(cat)">
 					<span>{{cat.label}}</span>
 				</div>
 			</div>

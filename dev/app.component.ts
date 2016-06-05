@@ -17,6 +17,7 @@ import {ItemsService} from './services/items.service';
     	<div class="main">
     		<my-category-selector (selectedCategory)="selectCategory($event)"></my-category-selector>
     		<my-category-products [myProducts]="getProducts(currentCategory)" [myCategory]="currentCategory" *ngIf="currentCategory.id != null"></my-category-products>
+	        <hr>
 	        <my-new-item (newItem)="addNewItem($event)"></my-new-item>
 	        <my-item-list *ngIf="itemArray.length > 0" [listArray]="itemArray" (chosenItem)="onSelectItem($event)"></my-item-list>
 	        <my-item-edit *ngIf="somethingSelected(selectedItem)" [managedItem]="selectedItem" (removedItem)="onRemoveItem($event)"></my-item-edit>
